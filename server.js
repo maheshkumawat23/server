@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 var model;
 app.use(express.static(__dirname + '/project'));
 
-/*var mongoose = require('mongoose')
+var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/Canteen', function () {
   console.log('mongodb connected')
 })
@@ -90,7 +90,7 @@ app.post('/api/posts', function (req, res, next) {
    console.log("saved");
   })
 	}
-})*/
+})
 /*app.get('/', function (req, res) {
   res.sendfile('index.html');
 });
