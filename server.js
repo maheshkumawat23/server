@@ -9,7 +9,7 @@ var model;
 app.use(express.static(__dirname + '/project'));
 
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/Canteen', function () {
+mongoose.connect('mongodb://mahesh:mahesh@ds139645.mlab.com:39645/canteen', function () {
   console.log('mongodb connected')
 })
 
