@@ -2,10 +2,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var path = require('path');
-var mongoXlsx = require('mongo-xlsx');
+//var mongoXlsx = require('mongo-xlsx');
+app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.json());
 var model;
 app.use(express.static(__dirname + '/project'));
+
 /*var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/Canteen', function () {
   console.log('mongodb connected')
@@ -89,9 +91,16 @@ app.post('/api/posts', function (req, res, next) {
   })
 	}
 })*/
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
   res.sendfile('index.html');
 });
 app.listen(3000, function () {
   console.log('Server listening on', 3000)
-})
+})*/
+app.get('/', function(request, response) {
+  response.render('index.html');
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
