@@ -5,11 +5,12 @@ var path = require('path');
 var mongoXlsx = require('mongo-xlsx');
 app.use(bodyParser.json());
 var model;
-var mongoose = require('mongoose')
+app.use(express.static(__dirname + '/project'));
+/*var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/Canteen', function () {
   console.log('mongodb connected')
 })
-app.use(express.static(__dirname + '/project'));
+
 var Post = mongoose.model('Post', {
   empId: { type: String, required: true },
   location:     { type: String, required: true },
@@ -87,7 +88,7 @@ app.post('/api/posts', function (req, res, next) {
    console.log("saved");
   })
 	}
-})
+})*/
 app.get('/', function (req, res) {
   res.sendfile('index.html');
 });
