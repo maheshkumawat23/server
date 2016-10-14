@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row content">
+		<br>
+		<div class="row center-align">
+		<div class="input-field col l6 m6 s6">
+						<select ng-model="live.location">
+						  <option selected>select location</option>
+						  <option >location1</option>
+						  <option>location2</option>
+						  <option >location3</option>
+						  <option>location4</option>
+						  <option >location5</option>
+						  <option>location6</option>
+						  <option >location7</option>
+						  <option>location-8</option>
+						</select>
+					</div>
+		<div class="input-field col l6 m6 s6">
+						<select ng-model="live.vendorName">
+						  <option selected>select vendor</option>
+						  <option >location1</option>
+						  <option>location2</option>
+						  <option >location3</option>
+						  <option>location4</option>
+						  <option >location5</option>
+						  <option>location6</option>
+						  <option >location7</option>
+						  <option>location8</option>
+						</select>
+					</div>
+		</div>
+		<div class="row center-align">
+			<div class="input-field col l6 m6 s6">
+			<p>From Date</p>
+						<input type="date" class="datepicker" ng-model="from">
+					</div>
+			<div class="input-field col l6 m6 s6">
+			<p>To Date</p>
+						<input type="date" class="datepicker" ng-model="to">
+					</div>
+		</div>
+		<div class="row center-align">
+			<a ng-click="startLive()" class="waves-effect waves-light btn">Display</a>
+			<a ng-click="Download()" class="waves-effect waves-light btn"> Download</a>
+			<button type="button" lazy-load="true" ng-csv="getArray" csv-header="['object_id', 'EmployeeId', 'Location','vendor Name','Taste','Service','Hygine','Veriety','Quality','Quantity','comments','date','v_id']" field-separator="{{separator}}" decimal-separator="{{decimalSeparator}}"  filename="test.csv">Export Excel</button>
+		</div>
+		<div class="row center-align">
+		 <div id="ccontainer">
+			
+			<div>
+		</div>
+		
+	</div>
+</div>
