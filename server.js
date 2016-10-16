@@ -8,7 +8,11 @@ app.use(bodyParser.json());
 
 var model;
 app.use(express.static(__dirname + '/project'));
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://mahesh:mahesh@ds139645.mlab.com:39645/canteen', function () {
   console.log('mongodb connected')
@@ -87,7 +91,7 @@ app.post('/api/posts', function (req, res, next) {
   //Post.find({}).remove().exec();
   post.save(function (err, post) {
     if (err) { return next(err) }
-   //res.json(post);
+   res.send("OK");
    console.log("saved");
   })
 	}
