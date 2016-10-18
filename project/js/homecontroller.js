@@ -12,6 +12,8 @@ cricketApp.controller('homeCtrl', function($scope, $http) {
 	$scope.getArray;
 	$scope.separator = ",";
 	$scope.decimalSeparator=".";
+	$scope.showRadio = false;
+	$scope.showTable = false;
     //var ctx = document.getElementById("myChart");
     var resetCanvas = function() {
         $('#myChart').remove(); // this is my <canvas> element
@@ -31,7 +33,7 @@ cricketApp.controller('homeCtrl', function($scope, $http) {
 			
 		});
 	}
-    $scope.startLive = function() {
+    $scope.startLive = function(selectedGraph) {
         resetCanvas();
         $scope.live.from = $scope.from.toISOString();
         $scope.live.to = $scope.to.toISOString();
@@ -42,6 +44,8 @@ cricketApp.controller('homeCtrl', function($scope, $http) {
 
         }).success(function(data) {
             console.log(data);
+			$scope.showTable = true;
+			$scope.showRadio = true;
 			$scope.getArray = data;
             var total = data.length;
             var taste = quality = quantity = service = hygine = veriety = 0;
@@ -55,19 +59,19 @@ cricketApp.controller('homeCtrl', function($scope, $http) {
                 quantity += parseInt(data[i].quantity);
 
             }
-            $scope.taste = taste / total;
-            $scope.quality = quality / total;
-            $scope.quantity = quantity / total;
-            $scope.service = service / total;
-            $scope.hygine = hygine / total;
-            $scope.veriety = veriety / total;
-            console.log();
+            $scope.taste = Math.round((taste/total)*100)/100;
+            $scope.quality = Math.round((quality / total)*100)/100;
+            $scope.quantity = Math.round((quantity / total)*100)/100;;
+            $scope.service = Math.round((service / total)*100)/100;
+            $scope.hygine = Math.round((hygine / total)*100)/100;
+            $scope.veriety = Math.round((veriety / total)*100)/100;
+            
             //$('#ccontainer').append(');
 
             var ctx = document.getElementById("myChart");
 
             var myChart = new Chart(ctx, {
-                type: 'bar',
+                type: String(selectedGraph),
                 data: {
                     labels: ["Taste", "Quality", "Quantity", "Service", "Hygine", "Veriety"],
                     datasets: [{

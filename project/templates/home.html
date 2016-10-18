@@ -40,15 +40,64 @@
 					</div>
 		</div>
 		<div class="row center-align">
-			<a ng-click="startLive()" class="waves-effect waves-light btn">Display</a>
+			<a ng-click="startLive('bar')" class="waves-effect waves-light btn">Display</a>
 			<a ng-click="Download()" class="waves-effect waves-light btn"> Download</a>
 			<button type="button" lazy-load="true" ng-csv="getArray" csv-header="['object_id', 'EmployeeId', 'Location','vendor Name','Taste','Service','Hygine','Veriety','Quality','Quantity','comments','date','v_id']" field-separator="{{separator}}" decimal-separator="{{decimalSeparator}}"  filename="test.csv">Export Excel</button>
 		</div>
 		<div class="row center-align">
-		 <div id="ccontainer">
+		<div ng-show="showRadio" class="input-field col s1">
+			<p>
+			<input name="group1" type="radio" id="bar" ng-click="startLive('bar')" />
+			<label for="bar">Bar</label>
+			</p>
+			<p>
+			<input name="group1" type="radio" id="horizontalBar" ng-click="startLive('horizontalBar')" />
+			<label for="horizontalBar">Horizontal</label>
+			</p>
+			<p>
+			<input name="group1" type="radio" id="line" ng-click="startLive('line')" />
+			<label for="line">Line</label>
+			</p>
+				
+				<p>
+			<input name="group1" type="radio" id="pie" ng-click="startLive('pie')" />
+			<label for="pie">Pie</label>
+			</p>
+				
+				<p>
+			<input name="group1" type="radio" id="radar" ng-click="startLive('radar')" />
+			<label for="radar">Radar</label>
+			</p>
+			<p>
+			<input name="group1" type="radio" id="doughnut" ng-click="startLive('doughnut')" />
+			<label for="doughnut">Doughnut</label>
+			</p>
+			<p>
+			<input name="group1" type="radio" id="polarArea" ng-click="startLive('polarArea')" />
+			<label for="polarArea">PolarArea</label>
+			</p>
+				
+						
+					</div>
+					<div class="input-field col s7">
+					<div id="ccontainer">
 			
 			<div>
 		</div>
 		
 	</div>
+	</div>
+			<div ng-show="showTable" class="input-field col s4">
+			    <table class="striped responsive-table" style="border:1">
+				<th>Fields</th>
+				<th>Avg. Rating (out of 5)</th>
+				<tr><th>Taste</th><th>{{taste}}</th></tr>
+				<tr><th>Quality</th><th>{{quality}}</th></tr>
+				<tr><th>Quantity</th><th>{{quantity}}</th></tr>
+				<tr><th>Service</th><th> {{service}}</th></tr>
+				<tr><th>Hygiene</th><th> {{hygine}}</th></tr>
+				<tr><th>Variety</th><th> {{veriety}}</th></tr>
+				</table>
+					</div>
+		 
 </div>
