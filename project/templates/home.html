@@ -3,7 +3,7 @@
 		<br>
 		<div class="row center-align">
 		<div class="input-field col l6 m6 s6">
-						<select ng-model="live.location">
+						<!--<select ng-model="live.location">
 						  <option selected>select location</option>
 						  <option >location1</option>
 						  <option>location2</option>
@@ -13,10 +13,13 @@
 						  <option>location6</option>
 						  <option >location7</option>
 						  <option>location-8</option>
+						</select> -->
+						 <select ng-model="live.location" ng-options="x for x in locationNames" ng-change="changeData()"required>
+						 <option value=''>- Choose Location -</option>
 						</select>
 					</div>
 		<div class="input-field col l6 m6 s6">
-						<select ng-model="live.vendorName">
+					<!--	<select ng-model="live.vendorName">
 						  <option selected>select vendor</option>
 						  <option >location1</option>
 						  <option>location2</option>
@@ -26,7 +29,10 @@
 						  <option>location6</option>
 						  <option >location7</option>
 						  <option>location8</option>
-						</select>
+						</select> -->
+						<select ng-model="live.vendorName" ng-options="y for y in vendorNames" required>
+						<option value=''>- Choose Vendor -</option>
+</select>
 					</div>
 		</div>
 		<div class="row center-align">
