@@ -48,7 +48,13 @@
 		<div class="row center-align">
 			<a ng-click="startLive('bar')" class="waves-effect waves-light btn">Display</a>
 			<a ng-click="Download()" class="waves-effect waves-light btn"> Download</a>
-			<button type="button" lazy-load="true" ng-csv="getArray" csv-header="['object_id', 'EmployeeId', 'Location','vendor Name','Taste','Service','Hygine','Veriety','Quality','Quantity','comments','date','v_id']" field-separator="{{separator}}" decimal-separator="{{decimalSeparator}}"  filename="test.csv">Export Excel</button>
+			
+			<a ng-click="DownloadAll()" class="waves-effect waves-light btn"> Download All Data</a>
+		</div>
+		<br>
+		<div class="row center-align">
+		
+		<button type="button" lazy-load="true" ng-csv="getArray" csv-header="['object_id', 'EmployeeId', 'Location','vendor Name','Taste','Service','Hygine','Veriety','Quality','Quantity','comments','date','v_id']" field-separator="{{separator}}" decimal-separator="{{decimalSeparator}}"  filename="test.csv">Export Excel</button>
 		</div>
 		<div class="row center-align">
 		<div ng-show="showRadio" class="input-field col s1">

@@ -257,6 +257,19 @@ cricketApp.controller('homeCtrl', function($scope, $http) {
 			
 		});
 	}
+	$scope.DownloadAll = function() {
+		//$scope.live.from = $scope.from.toISOString();
+       //$scope.live.to = $scope.to.toISOString();
+		$http.get('api/posts').success(function(data){
+			//alert('hello');
+			console.log(data);
+			$scope.getArray = data;
+			alert('your data is ready please click on Export button');
+			
+		});
+	}
+	
+	
     $scope.startLive = function(selectedGraph) {
         resetCanvas();
         $scope.live.from = $scope.from.toISOString();
